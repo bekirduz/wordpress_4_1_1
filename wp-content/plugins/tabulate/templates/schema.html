@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>
+	Tabulate Schema Editor
+	{#<a href="{{admin_url('admin.php?page=tabulate_schema')}}" class="page-title-action">New table</a>#}
+</h1>
+
+<form action="{{admin_url('admin.php?page=tabulate_schema&action=tables')}}" method="post" class="tabulate-schema">
+<fieldset id="tabulate-schema-table-list">
+	<p>
+		In this panel, you can select which tables are available for selection in the quick-jump menu.
+	</p>
+	<ol>
+	{% for table in tables %}
+		<li>
+			<input {% if table.get_name in managed_tables %}checked{% endif %}
+				   type="checkbox" name="managed_tables[]" value="{{table.get_name}}" />
+			<a href="{{admin_url('admin.php?page=tabulate_schema&schema='~table.get_name)}}">
+				{{table.get_title}}
+			</a>
+		</li>
+	{% endfor %}
+	</ol>
+	<p>
+		<a class="button button-secondary" id="select-all">Select all</a>
+		<a class="button button-secondary" id="select-none">Select none</a>
+		<input type="submit" value="Save" class="button button-primary" />
+	</p>
+</fieldset>
+</form>
+
+{% if schema %}
+<form action="{{admin_url('admin.php?page=tabulate_schema&schema='~schema.get_name~'&action=save')}}" method="post" class="tabulate-schema">
+<fieldset id="tabulate-schema-form">
+	<h2>
+		{% if schema %}
+		Editing <a href="{{schema.get_url()}}" title="Jump to this table">{{schema.get_title}}</a>
+		{% else %}
+		New table
+		{% endif%}
+	</h2>
+	<p>
+		<label for="new_name">New name:</label>
+		<input type="text" id="new_name" name="new_name" value="{{schema.get_name}}" class="schema-identifier" required />
+	</p>
+	{#
+	<table class="ui-sortable">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Order</th>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Size</th>
+				<th>Options</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% set pos = 1 %}
+			{% for col in schema.get_columns %}
+			<tr>
+				<td></td>
+				<td>
+					<span class="hndle ui-sortable-handle">Reorder</span>
+					<input type="text" name="columns[{{col.get_name}}][pos]" value="{{pos}}" />
+				</td>
+				<td><input type="text" name="columns[{{col.get_name}}][name]" value="{{col.get_name}}" /></td>
+				<td>
+					<select name="columns[{{col.get_name}}][type]">
+						{% for type in types %}
+						<option {% if col.get_type == type %}selected{% endif %} value="{{type}}">
+							{{type}}
+						</option>
+						{% endfor %}
+					</select>
+				</td>
+				<td>
+					<input type="text" name="columns[{{col.get_name}}][size]" value="{{col.get_size}}" />
+				</td>
+				<td></td>
+			</tr>
+			{% set pos = pos + 1 %}
+			{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr class="new">
+				<td>New field:</td>
+				<td>
+					<span class="hndle ui-sortable-handle">Reorder</span>
+					<input type="text" name="columns[][pos]" value="{{pos}}" />
+				</td>
+				<td><input type="text" name="columns[][name]" value="" /></td>
+				<td>
+					<select name="columns[][type]">
+						{% for type in types %}
+						<option value="{{type}}">
+							{{type}}
+						</option>
+						{% endfor %}
+					</select>
+				</td>
+				<td>
+					<input type="text" name="columns[][size]" value="" />
+				</td>
+				<td></td>
+			</tr>
+		</tfoot>
+	</table>
+	#}
+	<p class="save">
+		<input type="submit" value="Save changes" class="btn btn-default" />
+	</p>
+</fieldset>
+</form>
+{% endif%}
+
+<div class="clear"></div>
+
+{% endblock %}

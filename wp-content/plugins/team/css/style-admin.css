@@ -1,6 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 /*Admin CSS*/
+
+
+
 .team-settings .team_member_social_icon, .team-settings .remove_icon,
 .team-member-skills .remove-skill,
 .team-member-meta-fields .remove-meta
@@ -40,7 +43,20 @@
 
 
 
+#team_metabox {
+  background: #f1f1f1 none repeat scroll 0 0;
+  border: medium none;
+  box-shadow: none;
+}
 
+#team_metabox .hndle {
+  background: rgb(96, 173, 252) none repeat scroll 0 0;
+  color: rgb(255, 255, 255);
+}
+
+#team_metabox .handlediv{
+  color: rgb(255, 255, 255);
+}
 
 
 

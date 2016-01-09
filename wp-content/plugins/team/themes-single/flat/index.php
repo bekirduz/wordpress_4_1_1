@@ -29,7 +29,7 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 	include team_plugin_dir.'/templates/team-grid-social.php';
 	$html.= '<div class="team-content">'.get_the_content().'</div>';	
 	
-	include team_plugin_dir.'/templates/team-grid-skill.php';	
+	//include team_plugin_dir.'/templates/team-grid-skill.php';	
 	
 	$html.= '</div>';	
 	

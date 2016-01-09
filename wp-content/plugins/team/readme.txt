@@ -3,8 +3,8 @@
 	Donate link: http://paratheme.com
 	Tags: team, members profiles, our teams, team members, team plugin wordpress, meet the team
 	Requires at least: 3.8
-	Tested up to: 4.3.1
-	Stable tag: 1.8
+	Tested up to: 4.4.0
+	Stable tag: 1.11
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,20 @@ then paste this shortcode anywhere in your page to display Team gird.<br />
 5. screenshot-5
 
 == Changelog ==
+
+
+	= 1.11 =
+	
+    * 04/01/2016 update - settings page update.
+
+	= 1.10 =
+	
+    * 11/12/2015 fix - Shortcode issue fixed.
+	
+	= 1.9 =
+	
+    * 19/11/2015 fix - Fixed file missing issue for single team members.
+	
 
 	= 1.8 =
 	

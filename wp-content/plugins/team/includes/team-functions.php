@@ -83,7 +83,7 @@ add_filter( 'manage_team_posts_columns' , 'team_add_shortcode_column' );
 function team_posts_shortcode_display( $column, $post_id ) {
     if ($column == 'shortcode'){
 		?>
-        <input style="background:#bfefff" type="text" onClick="this.select();" value="[team <?php echo ' id=&quot;'.$post_id.'&quot;';?> ]" />
+        <input style="background:#bfefff" type="text" onClick="this.select();" value="[team <?php echo ' id=&quot;'.$post_id.'&quot;';?> ]" /><br />
       <textarea cols="50" rows="1" style="background:#bfefff" onClick="this.select();" ><?php echo '<?php echo do_shortcode("[team id='; echo "'".$post_id."' ]"; echo '"); ?>'; ?></textarea>
         <?php		
 		

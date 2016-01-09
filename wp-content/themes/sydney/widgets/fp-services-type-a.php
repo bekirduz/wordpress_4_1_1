@@ -11,10 +11,7 @@ class Sydney_Services_Type_A extends WP_Widget {
 		$widget_ops = array('classname' => 'sydney_services_widget', 'description' => __( 'Show what services you are able to provide.', 'sydney') );
         parent::__construct(false, $name = __('Sydney FP: Services Type A', 'sydney'), $widget_ops);
 		$this->alt_option_name = 'sydney_services_widget';
-		
-		add_action( 'save_post', array($this, 'flush_widget_cache') );
-		add_action( 'deleted_post', array($this, 'flush_widget_cache') );
-		add_action( 'switch_theme', array($this, 'flush_widget_cache') );		
+			
     }
 	
 	function form($instance) {
@@ -54,17 +51,11 @@ class Sydney_Services_Type_A extends WP_Widget {
 		$instance['category'] 		= strip_tags($new_instance['category']);
 		$instance['two_cols'] 		= isset( $new_instance['two_cols'] ) ? (bool) $new_instance['two_cols'] : false;		
 		    			
-		$this->flush_widget_cache();
-
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['sydney_services']) )
 			delete_option('sydney_services');		  
 		  
 		return $instance;
-	}
-	
-	function flush_widget_cache() {
-		wp_cache_delete('sydney_services', 'widget');
 	}
 	
 	function widget($args, $instance) {

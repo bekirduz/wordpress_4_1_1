@@ -540,28 +540,31 @@ Team Post
         
         
         <div class="para-settings">
-    
-    
+            <ul class="tab-nav">
+            <li nav="1" class="nav1 active"><?php _e('Shortcode','team'); ?></li>        
+            <li nav="2" class="nav2"><?php _e('Options','team'); ?></li>
+            <li nav="3" class="nav3"><?php _e('Style','team'); ?></li>
+            <li nav="4" class="nav4"><?php _e('Query Member','team'); ?></li>          
+            <li nav="5" class="nav5"><?php _e('Custom CSS','team'); ?></li>
+            <li nav="7" class="nav6"><?php _e('Layout Builder','team'); ?></li>
+
+        </ul> <!-- tab-nav end -->
+		<ul class="box">
+        
+            <li style="display: block;" class="box1 tab-box active">
+            
 				<div class="option-box">
                     <p class="option-title"><?php _e('Shortcode.','team'); ?></p>
                     <p class="option-info"><?php _e('Copy this shortcode and paste on page or post where you want to display Team. <br />Use PHP code to your themes file to display Team.','team'); ?></p>
-					<textarea cols="50" rows="1" style="background:#bfefff" onClick="this.select();" >[team <?php echo ' id="'.$post->ID.'"';?> ]</textarea><br />
-					<textarea cols="50" rows="1" style="background:#bfefff" onClick="this.select();" ><?php echo '<?php echo do_shortcode("[team id='; echo "'".$post->ID."' ]"; echo '"); ?>'; ?></textarea>  
+					<textarea cols="50" rows="1" style="background:#bfefff" onClick="this.select();" >[team <?php echo 'id="'.$post->ID.'"';?>]</textarea><br />
+					<textarea cols="50" rows="1" style="background:#bfefff" onClick="this.select();" ><?php echo '<?php echo do_shortcode("[team id='; echo "'".$post->ID."']"; echo '"); ?>'; ?></textarea>  
 
                 </div> 
-    
-    
-        <ul class="tab-nav"> 
-            <li nav="1" class="nav1 active"><?php _e('Options','team'); ?></li>
-            <li nav="2" class="nav2"><?php _e('Style','team'); ?></li>
-            <li nav="3" class="nav3"><?php _e('Query Member','team'); ?></li>          
-            <li nav="5" class="nav5"><?php _e('Custom CSS','team'); ?></li>
-            <li nav="6" class="nav6"><?php _e('Layout Builder','team'); ?></li>
-         
             
-        </ul> <!-- tab-nav end -->
-		<ul class="box">
-            <li style="display: block;" class="box1 tab-box active">
+            </li>    
+        
+        
+            <li style="display: none;" class="box2 tab-box">
 				<div class="option-box">
                     <p class="option-title"><?php _e('Total number of members on each page(pagination).','team'); ?></p>
                     <p class="option-info"><?php _e('You can display pagination or Total number of member on grid.','team'); ?></p>
@@ -634,7 +637,7 @@ Team Post
             
             
             </li>
-			<li style="display: none;" class="box2 tab-box">
+			<li style="display: none;" class="box3 tab-box">
 				<div class="option-box">
                     <p class="option-title"><?php _e('Themes.','team'); ?></p>
                     <p class="option-info"><?php _e('Themes for Team grid.','team'); ?></p>
@@ -821,7 +824,7 @@ Team Post
 
             
             </li>
-			<li style="display: none;" class="box3 tab-box">
+			<li style="display: none;" class="box4 tab-box">
             
             
             
@@ -919,7 +922,7 @@ Team Post
             
                       
             
-            <li style="display: none;" class="box6 tab-box">
+            <li style="display: none;" class="box7 tab-box">
 				<div class="option-box">
                     <p class="option-title"><?php _e('Layout builder','team'); ?></p>
                     <p class="option-info"><?php _e('You can sort grid items from here.','team'); ?></p>

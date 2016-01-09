@@ -6,10 +6,6 @@ class Sydney_Clients extends WP_Widget {
 		$widget_ops = array('classname' => 'sydney_clients_widget', 'description' => __( 'Display your clients list.', 'sydney') );
         parent::__construct(false, $name = __('Sydney FP: Clients', 'sydney'), $widget_ops);
 		$this->alt_option_name = 'sydney_clients_widget';
-		
-		add_action( 'save_post', array($this, 'flush_widget_cache') );
-		add_action( 'deleted_post', array($this, 'flush_widget_cache') );
-		add_action( 'switch_theme', array($this, 'flush_widget_cache') );		
     }
 	
 	function form($instance) {
@@ -44,17 +40,12 @@ class Sydney_Clients extends WP_Widget {
 		$instance['see_all'] 		= esc_url_raw( $new_instance['see_all'] );	
 		$instance['see_all_text'] 	= strip_tags($new_instance['see_all_text']);
 		$instance['category'] 		= strip_tags($new_instance['category']);		
-		$this->flush_widget_cache();
 
 		$alloptions = wp_cache_get( 'alloptions', 'options' );
 		if ( isset($alloptions['sydney_clients']) )
 			delete_option('sydney_clients');		  
 		  
 		return $instance;
-	}
-	
-	function flush_widget_cache() {
-		wp_cache_delete('sydney_clients', 'widget');
 	}
 	
 	// display widget
